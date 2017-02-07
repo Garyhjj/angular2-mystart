@@ -1,0 +1,14 @@
+.searchOut{
+  position: relative;
+}
+.search{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  width:100%;
+}
+.search-result{
+  cursor: pointer;
+  width:100%;
+}

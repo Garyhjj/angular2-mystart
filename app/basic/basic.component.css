@@ -1,0 +1,20 @@
+.navRight{
+  margin-top: 8px;
+}
+.unactiveRoute{
+  display: none;
+}
+.unactiveRoute>a{
+  color: #337ab7;
+  text-decoration: none;
+}
+.unactiveRoute>a:hover{
+  color: #337ab7;
+  text-decoration: none;
+}
+.active-link{
+  display: inline-block;
+  color: #777;
+  text-decoration: none;
+  cursor: default;
+}

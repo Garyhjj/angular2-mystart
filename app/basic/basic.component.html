@@ -1,0 +1,34 @@
+<div class="containter">
+  <div class="containter">
+    <ol class="breadcrumb">
+       <li><a routerLink="/basic/all/1" routerLinkActive='active-link'>基本資料建檔</a></li>
+       <li class="active unactiveRoute" routerLink="/basic/change" routerLinkActive='active-link'>保養名稱定義</li>
+       <li class="active unactiveRoute" routerLink="/basic/new" routerLinkActive='active-link'>設備基本資料建檔</li>
+    </ol>
+  </div>
+  <div class="containter">
+    <div class="row">
+      <div class="col-md-1">
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+            基本資料建檔
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation"><a role="menuitem" tabindex="-1" routerLink="/">設備機型定義</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">LOOKUP設定</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">保養名稱設定</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">保養項目定義</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" routerLink="/basic/new">設備基本資料建檔</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+
+
+  </div>
+</div>

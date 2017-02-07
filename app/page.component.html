@@ -1,0 +1,25 @@
+<nav>
+  <ul class="pagination pull-right" *ngIf="pageMes">
+    <li [class.disabled]="this.pageSelected <2 " (click)="prePage()">
+      <a href="javascript:void(0)">«</a>
+    </li>
+    <li [class.active]="pageSelected === pageShow.first">
+      <a href="javascript:void(0)" (click)="jump(pageShow.first)">{{pageShow.first}}</a>
+    </li>
+    <li [class.active]="pageSelected === pageShow.second" *ngIf="pageMes.pageTotal>1">
+      <a href="javascript:void(0)" (click)="jump(pageShow.second)">{{pageShow.second}}</a>
+    </li>
+    <li [class.active]="pageSelected === pageShow.third" *ngIf="pageMes.pageTotal>2">
+      <a href="javascript:void(0)" (click)="jump(pageShow.third)">{{pageShow.third}}</a>
+    </li>
+    <li [class.active]="pageSelected === pageShow.fourth" *ngIf="pageMes.pageTotal>3">
+      <a href="javascript:void(0)" (click)="jump(pageShow.fourth)">{{pageShow.fourth}}</a>
+    </li>
+    <li [class.active]="pageSelected === pageShow.fifth" *ngIf="pageMes.pageTotal>4">
+      <a href="javascript:void(0)" (click)="jump(pageShow.fifth)">{{pageShow.fifth}}</a>
+    </li>
+    <li [class.disabled]="this.pageSelected === pageMes.pageTotal" (click)="nextPage()">
+      <a href="javascript:void(0)">»</a>
+    </li>
+ </ul>
+</nav>

@@ -1,0 +1,11 @@
+
+<form class="navbar-form navbar-left" role="search">
+  <div class="form-group searchOut">
+    <input type="text" class="form-control" placeholder="搜索" #searchBox (keyup)="search(searchBox.value)">
+    <ul class="list-group" [class.search]="works">
+      <li *ngFor="let work of works | async"
+           (click)="gotoDetail(work)" class="search-result list-group-item">{{work.name}}</li>
+    </ul>
+  </div>
+  <button type="submit" class="btn btn-default pull-right">go</button>
+</form>

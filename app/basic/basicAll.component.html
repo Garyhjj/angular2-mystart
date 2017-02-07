@@ -1,0 +1,61 @@
+<div class="row" *ngIf="!showDetail">
+  <div class="col-md-11">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+
+          <basicSearch></basicSearch>
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Actions <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="javascript:void(0)">Action</a></li>
+                <li><a href="javascript:void(0)">Another action</a></li>
+                <li><a href="javascript:void(0)">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="javascript:void(0)">Separated link</a></li>
+                <li class="divider"></li>
+                <li><a href="javascript:void(0)">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="pull-right navRight">
+            <button type="button" class="btn btn-default"><a routerLink="/basic/new">創建</a></button>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </div>
+  <div class="col-md-10">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>保養名稱</th>
+          <th>說明</th>
+          <th>隔間週期</th>
+          <th>週期單位</th>
+          <th>月(年)計劃</th>
+          <th>周計劃</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let work of works;let i = index;trackBy:trackByWorks" (click)="getWork(i)">
+          <td ><span class="glyphicon glyphicon-pencil"></span></td>
+          <td>{{work.name}}</td>
+          <td>{{work.content}}</td>
+          <td>{{work.period}}</td>
+          <td>{{work.unit}}</td>
+          <td>{{work.monthPlan}}</td>
+          <td>{{work.weekPlan}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-10">
+    <page></page>
+  </div>
+</div>
