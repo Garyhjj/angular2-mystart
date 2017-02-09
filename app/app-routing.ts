@@ -6,6 +6,8 @@ import { DailyWorkComponent }  from './dailyWork/dailyWork.component';
 import { QueryWorkComponent }  from './queryWork/queryWork.component';
 import { PageNotFoundComponent } from './page-notFound.component';
 
+import { CanDeactivateGuard } from './basic/can-deactivate.service';
+
 const routes:Routes = [
   {
     path:'',
@@ -28,7 +30,10 @@ const routes:Routes = [
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  exports: [ RouterModule ],
+  providers: [
+    CanDeactivateGuard
+  ]
 })
 
 export class AppRoutingModule {}

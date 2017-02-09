@@ -8,6 +8,8 @@ import { BasicNewComponent }  from './basicNew.component';
 
 import { AuthGuard }                from '../auth-guard.service';
 
+import { CanDeactivateGuard }    from './can-deactivate.service';
+
 const basicRoutes: Routes = [
   {
     path:'basic',
@@ -30,6 +32,7 @@ const basicRoutes: Routes = [
           {
             path: 'change/:id',
             component: BasicChangeComponent,
+            canDeactivate: [CanDeactivateGuard]
           },
           {
             path: 'new',

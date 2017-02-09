@@ -7,8 +7,12 @@ import { CanActivate, //守卫，处理导航到某路由的情况。
 
 @Injectable()
 export class AuthGuard implements CanActivate,CanActivateChild {
+
+  constructor(
+     private router: Router
+   ) {}
   canActivate( route: ActivatedRouteSnapshot , state: RouterStateSnapshot){
-    console.log(state.url);
+    // this.router.navigate(['./queryWork'])
     return true;
     }
   canActivateChild(): boolean {
