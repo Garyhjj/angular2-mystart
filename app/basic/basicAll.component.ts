@@ -36,15 +36,19 @@ export class BasicAllComponent implements OnInit {
     //獲取數據分頁信息
     this.workService.getPage().then((mypage) => {
       var tempMypage = mypage;
-      this.route.params
-        .switchMap((params: Params) => {
-          tempMypage.currPage = +params['id'];
-          tempMypage.currRoute = './basic/all';
-          this.mypage = tempMypage;
-          return this.workService.getPageWorks(+params['id']);
-        }).subscribe(works => {
-          this.works = works;
-        });
+      //從路由處獲取預先加載的信息
+      this.route.data.subscribe((data:{works:Work[]}) => this.works = data.works);
+      tempMypage.currPage = +this.route.params['id'];
+      tempMypage.currRoute = './basic/all';
+      this.mypage = tempMypage;
+      // this.route.params
+      //   .switchMap((params: Params) => {
+      //
+      //     this.mypage = tempMypage;
+      //     return this.workService.getPageWorks(+params['id']);
+      //   }).subscribe(works => {
+      //     this.works = works;
+      //   });
     });
   }
   getWorks(): void{

@@ -10,6 +10,10 @@ import { AuthGuard }                from '../auth-guard.service';
 
 import { CanDeactivateGuard }    from './can-deactivate.service';
 
+import { WorksResolve }          from './works-resolve.service'
+
+import { WorkResolve }          from './work-resolve.service'
+
 const basicRoutes: Routes = [
   {
     path:'basic',
@@ -27,12 +31,18 @@ const basicRoutes: Routes = [
         children: [
           {
             path: 'all/:id',
-            component: BasicAllComponent
+            component: BasicAllComponent,
+            resolve:{
+              works:WorksResolve
+            }
           },
           {
             path: 'change/:id',
             component: BasicChangeComponent,
-            canDeactivate: [CanDeactivateGuard]
+            canDeactivate: [CanDeactivateGuard],
+            resolve:{
+              work:WorkResolve
+            }
           },
           {
             path: 'new',
@@ -60,6 +70,10 @@ const basicRoutes: Routes = [
   ],
   exports: [
     RouterModule
+  ],
+  providers: [
+    WorksResolve,
+    WorkResolve
   ]
 })
 export class BasicRoutingModule { }

@@ -24,9 +24,11 @@ export class BasicChangeComponent implements OnInit{
     this.workService.delete(this.work.id).then(() => this.goback())
   }
   ngOnInit(): void {
-    this.route.params
-      .switchMap((params: Params) => this.workService.getWork(+params['id']))
-      .subscribe(work => this.work = work);
+    //從路由處獲取預先加載的信息
+    this.route.data.subscribe((data:{work:Work}) => this.work = data.work);
+    // this.route.params
+    //   .switchMap((params: Params) => this.workService.getWork(+params['id']))
+    //   .subscribe(work => this.work = work);
   }
   passNum:number;
   save(form:any): void {
