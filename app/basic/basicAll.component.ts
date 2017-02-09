@@ -14,7 +14,13 @@ import { Work } from './work';
 
 export class BasicAllComponent implements OnInit {
   selectWork:Work;
-  works:Work[]
+  works:Work[];
+  mypage:{
+    pageSize:number,//每頁容量
+    dataTotal:number,//總數據數量
+    currPage:number,//目前頁碼
+    currRoute:string,//目前除頁碼id的路由地址
+  };
   constructor(
     private workService:WorkService,
     private router:Router,
@@ -25,10 +31,21 @@ export class BasicAllComponent implements OnInit {
   trackByWorks(index: number, work: Work) { return work.id; };
 
   ngOnInit(): void {
-    this.route.params
-      .switchMap((params: Params) => this.workService.getPageWorks(+params['id']))
-      .subscribe(works => this.works = works);
+    //獲取數據
     // this.getWorks();
+    //獲取數據分頁信息
+    this.workService.getPage().then((mypage) => {
+      var tempMypage = mypage;
+      this.route.params
+        .switchMap((params: Params) => {
+          tempMypage.currPage = +params['id'];
+          tempMypage.currRoute = './basic/all';
+          this.mypage = tempMypage;
+          return this.workService.getPageWorks(+params['id']);
+        }).subscribe(works => {
+          this.works = works;
+        });
+    });
   }
   getWorks(): void{
     this.workService.getWorks().then(works => this.works = works);

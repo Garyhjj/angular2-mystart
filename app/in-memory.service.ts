@@ -1,7 +1,7 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 export class InMemoryService implements InMemoryDbService {
   createDb() {
-    let works = [
+    let works = [ 
       {id: 1,name:'2月保養', content:'每隔兩個月保養', period: 2, unit:'Month(月)', monthPlan:'Y', weekPlan:'N'},
       {id: 2,name:'AOI機械月保養', content:'每隔一個月保養', period: 1, unit:'Month(月)', monthPlan:'Y', weekPlan:'N'},
       {id: 3,name:'as required', content:'根據狀況需要進行保養', period: 2, unit:'Week(周)', monthPlan:'N', weekPlan:'N'},
@@ -148,7 +148,7 @@ export class InMemoryService implements InMemoryDbService {
       {id: 144,name:'A月保養', content:'設備維護vbn', period: 1, unit:'Month(月)', monthPlan:'Y', weekPlan:'N'},
       {id: 145,name:'BOSE功能測試機械月保養', content:'BOSE功能測試機械月保養', period: 1, unit:'Month(月)', monthPlan:'Y', weekPlan:'N'}
     ]
-    let page ={pageSize:10,pageTotal:15}
+    let page ={pageSize:10,dataTotal:145}
 
     return {works,page};
   }

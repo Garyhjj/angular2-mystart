@@ -6,16 +6,16 @@
     <li [class.active]="pageSelected === pageShow.first">
       <a href="javascript:void(0)" (click)="jump(pageShow.first)">{{pageShow.first}}</a>
     </li>
-    <li [class.active]="pageSelected === pageShow.second" *ngIf="pageMes.pageTotal>1">
+    <li [class.active]="pageSelected === pageShow.second" *ngIf="pageTotal>1">
       <a href="javascript:void(0)" (click)="jump(pageShow.second)">{{pageShow.second}}</a>
     </li>
-    <li [class.active]="pageSelected === pageShow.third" *ngIf="pageMes.pageTotal>2">
+    <li [class.active]="pageSelected === pageShow.third" *ngIf="pageTotal>2">
       <a href="javascript:void(0)" (click)="jump(pageShow.third)">{{pageShow.third}}</a>
     </li>
-    <li [class.active]="pageSelected === pageShow.fourth" *ngIf="pageMes.pageTotal>3">
+    <li [class.active]="pageSelected === pageShow.fourth" *ngIf="pageTotal>3">
       <a href="javascript:void(0)" (click)="jump(pageShow.fourth)">{{pageShow.fourth}}</a>
     </li>
-    <li [class.active]="pageSelected === pageShow.fifth" *ngIf="pageMes.pageTotal>4">
+    <li [class.active]="pageSelected === pageShow.fifth" *ngIf="pageTotal>4">
       <a href="javascript:void(0)" (click)="jump(pageShow.fifth)">{{pageShow.fifth}}</a>
     </li>
     <li [class.disabled]="this.pageSelected === pageMes.pageTotal" (click)="nextPage()">
