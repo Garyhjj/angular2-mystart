@@ -20,6 +20,7 @@ export class BasicAllComponent implements OnInit {
     dataTotal:number,//總數據數量
     currPage:number,//目前頁碼
     currRoute:string,//目前除頁碼id的路由地址
+    pageLength:number//顯示的最多頁碼數
   };
   constructor(
     private workService:WorkService,
@@ -38,17 +39,13 @@ export class BasicAllComponent implements OnInit {
       var tempMypage = mypage;
       //從路由處獲取預先加載的信息
       this.route.data.subscribe((data:{works:Work[]}) => this.works = data.works);
-      tempMypage.currPage = +this.route.params['id'];
+
+      this.route.params.forEach((params) => {
+        tempMypage.currPage = +params['id'];
+      });
       tempMypage.currRoute = './basic/all';
+      tempMypage.pageLength = 7;
       this.mypage = tempMypage;
-      // this.route.params
-      //   .switchMap((params: Params) => {
-      //
-      //     this.mypage = tempMypage;
-      //     return this.workService.getPageWorks(+params['id']);
-      //   }).subscribe(works => {
-      //     this.works = works;
-      //   });
     });
   }
   getWorks(): void{
